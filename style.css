@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
+    background: #f2f6fb; /* ფონიც დაემატა */
 }
 
 /* HEADER */
@@ -8,21 +9,50 @@ body {
     display: flex;
     align-items: center;
     padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 .logo {
     width: 70px;
 }
 
+.header-text {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #1a3d7c; /* ლურჯი ფერი */
+}
+
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 15px;
     padding: 10px;
+}
+
+/* CARD */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card img {
     width: 100%;
+    display: block;
+}
+
+/* FADED */
+.faded {
+    opacity: 0.5;
 }
 
 /* მეორე გვერდი */
@@ -31,10 +61,16 @@ body {
 }
 
 .row {
-    background: #eee;
+    background: #ffffff;
     padding: 15px;
     margin-bottom: 10px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.row:hover {
+    background: #e6eefc;
 }
 
 /* მესამე */
@@ -42,6 +78,11 @@ body {
     padding: 20px;
 }
 
+/* BUTTON */
 button {
     padding: 10px;
+    background: #1a3d7c;
+    color: white;
+    border: none;
+    border-radius: 6px;
 }
