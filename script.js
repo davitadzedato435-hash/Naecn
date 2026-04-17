@@ -9,11 +9,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ================= PAGE 2 (rows) =================
+    // ================= PAGE 2 & 3 (rows) =================
     document.querySelectorAll(".row").forEach(row => {
         row.addEventListener("click", () => {
+
+            // თუ კონკრეტული ლინკი აქვს → გადადი
             const link = row.getAttribute("data-link");
-            if (link) window.location.href = link;
+            if (link) {
+                window.location.href = link;
+                return;
+            }
+
+            // თუ ლინკი არ აქვს → გავაკეთოთ მოქმედება ტექსტის მიხედვით
+            const title = row.querySelector(".title")?.innerText;
+
+            if (title === "შედეგები") {
+                downloadFile();
+            }
+
+            if (title === "აპელაცია") {
+                alert("აპელაცია მალე დაემატება");
+            }
+
         });
     });
 
@@ -77,7 +94,9 @@ function login(){
     }
 
     if (error) error.innerText = "";
-    window.location.href = "Mag.html";
+
+    // ⚠️ აქაც ვასწორებთ
+    window.location.href = "mag.html";
 }
 
 
