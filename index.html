@@ -2,8 +2,11 @@
 <html lang="ka">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAEC</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS (cache fix) -->
+    <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
 
@@ -41,6 +44,8 @@
 
 </div>
 
-<script src="script.js"></script>
+<!-- JS defer რომ არ დააგვიანოს CSS -->
+<script src="script.js" defer></script>
+
 </body>
 </html>
