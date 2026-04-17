@@ -1,81 +1,36 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>სისტემაში შესვლა</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>შედეგები</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page4">
 
-<div class="page-wrapper">
-    <h1 class="main-title">საერთო სამაგისტრო გამოცდა</h1>
-    
-    <div class="container">
-        <div class="content-layout">
+<div class="wrapper">
 
-            <!-- LEFT -->
-            <section class="info-section">
-                <p>მოგესალმებით,</p>
-                <p>შეიყვანეთ მონაცემები რეგისტრაციის გასაგრძელებლად.</p>
-            </section>
-
-            <!-- RIGHT -->
-            <section class="form-section">
-                <div class="login-card">
-
-                    <div class="login-header">სისტემაში შესვლა</div>
-
-                    <div class="login-inner-border">
-                        <p class="form-instruction">
-                            შეიყვანეთ მონაცემები
-                        </p>
-
-                        <!-- პირადი ნომერი -->
-                        <div class="form-group">
-                            <label for="personal-id">პირადი ნომერი</label>
-                            <input type="text" id="personal-id">
-                        </div>
-
-                        <!-- ✅ საიდენტიფიკაციო კოდი -->
-                        <div class="form-group">
-                            <label for="identification-code">საიდენტიფიკაციო კოდი</label>
-                            <input type="text" id="identification-code">
-                        </div>
-
-                        <!-- CAPTCHA -->
-                        <div class="captcha-container">
-                            <div class="captcha-image">
-                                <span id="captcha-text" class="captcha-text"></span>
-                            </div>
-                            <div class="captcha-refresh" onclick="generateCaptcha()">
-                                🔄 განახლება
-                            </div>
-                        </div>
-
-                        <!-- captcha input -->
-                        <div class="form-group">
-                            <label for="captcha-input">აკრიფეთ სიმბოლოები</label>
-                            <input type="text" id="captcha-input">
-                        </div>
-
-                        <button class="submit-btn" onclick="checkForm()">
-                            გაგრძელება
-                        </button>
-
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </div>
+<div class="logo">
+<img src="https://i.imgur.com/nnPWqhV.png">
 </div>
 
-<!-- JS -->
-<script src="script.js"></script>
+<div class="table-box">
+<table>
+<tr>
+<th>საგანი</th>
+<th>ქულა</th>
+</tr>
 
+<tr>
+<td>ლოგიკა</td>
+<td>8.2</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
