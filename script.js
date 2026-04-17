@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- DOWNLOAD ---
+    // ================= DOWNLOAD =================
     window.downloadFile = function () {
         const link = document.createElement("a");
         link.href = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.removeChild(link);
     };
 
-    // --- CARD CLICK ---
+    // ================= NAVIGATION =================
+
+    // CARD (index.html)
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("click", () => {
             const link = card.getAttribute("data-link");
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- ROW CLICK ---
+    // ROW (mag.html)
     document.querySelectorAll(".row").forEach(row => {
         row.addEventListener("click", () => {
             const link = row.getAttribute("data-link");
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- CAPTCHA ---
+    // ================= CAPTCHA =================
     generateCaptcha();
 
 });
@@ -39,31 +41,35 @@ let captchaText = "";
 function generateCaptcha() {
     const canvas = document.getElementById("captchaCanvas");
 
-    if (!canvas) return;
+    if (!canvas) return; // სხვა გვერდზე რომ არ დააგდოს error
 
     const ctx = canvas.getContext("2d");
 
     canvas.width = 200;
     canvas.height = 60;
 
-    captchaText = Math.random().toString(36).substring(2,7);
+    captchaText = Math.random().toString(36).substring(2, 7);
 
-    ctx.clearRect(0,0,200,60);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.font = "28px Georgia";
     ctx.fillStyle = "#000";
 
-    for(let i=0;i<captchaText.length;i++){
-        let angle = (i-2)*0.2;
+    for (let i = 0; i < captchaText.length; i++) {
+        let angle = (i - 2) * 0.2;
+
         ctx.save();
-        ctx.translate(30 + i*30,30);
+        ctx.translate(30 + i * 30, 30);
         ctx.rotate(angle);
-        ctx.fillText(captchaText[i],0,0);
+        ctx.fillText(captchaText[i], 0, 0);
         ctx.restore();
     }
 }
 
-function login(){
+
+// ================= LOGIN =================
+
+function login() {
     const capInput = document.getElementById("captchaInput");
     const codeInput = document.getElementById("code");
     const error = document.getElementById("error");
@@ -73,16 +79,18 @@ function login(){
     const cap = capInput.value.trim();
     const code = codeInput.value.trim();
 
-    if(cap !== captchaText){
+    if (cap !== captchaText) {
         error.innerText = "ქაპჩა არასწორია";
         return;
     }
 
-    if(code !== "983817247"){
+    if (code !== "983817247") {
         error.innerText = "საიდენტიფიკაციო კოდი არასწორია";
         return;
     }
 
     error.innerText = "";
+
+    // გადასვლა შედეგებზე
     window.location.href = "next.html";
 }
