@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ================= NAVIGATION =================
 
-    // CARD (index.html)
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("click", () => {
             const link = card.getAttribute("data-link");
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ROW (mag.html)
     document.querySelectorAll(".row").forEach(row => {
         row.addEventListener("click", () => {
             const link = row.getAttribute("data-link");
@@ -41,7 +39,7 @@ let captchaText = "";
 function generateCaptcha() {
     const canvas = document.getElementById("captchaCanvas");
 
-    if (!canvas) return; // სხვა გვერდზე რომ არ დააგდოს error
+    if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
 
@@ -70,20 +68,37 @@ function generateCaptcha() {
 // ================= LOGIN =================
 
 function login() {
-    const capInput = document.getElementById("captchaInput");
-    const codeInput = document.getElementById("code");
+    const personal = document.getElementById("personal-id"); // ➕ ახალი
+    const codeInput = document.getElementById("identification-code"); // ➕ შეცვლილი ID
+    const capInput = document.getElementById("captcha-input"); // ➕ შეცვლილი ID
     const error = document.getElementById("error");
 
-    if (!capInput || !codeInput || !error) return;
+    if (!personal || !codeInput || !capInput || !error) return;
 
     const cap = capInput.value.trim();
     const code = codeInput.value.trim();
+    const person = personal.value.trim();
 
-    if (cap !== captchaText) {
-        error.innerText = "ქაპჩა არასწორია";
+    // ველები ცარიელია?
+    if (!person || !code || !cap) {
+        error.innerText = "შეავსე ყველა ველი";
         return;
     }
 
+    // captcha check
+    if (cap !== captchaText) {
+        error.innerText = "ქაპჩა არასწორია";
+        generateCaptcha();
+        return;
+    }
+
+    // კოდი (9 ციფრი)
+    if (code.length !== 9) {
+        error.innerText = "კოდი უნდა იყოს 9 ციფრი";
+        return;
+    }
+
+    // კონკრეტული კოდი (თუ გინდა)
     if (code !== "983817247") {
         error.innerText = "საიდენტიფიკაციო კოდი არასწორია";
         return;
@@ -91,6 +106,6 @@ function login() {
 
     error.innerText = "";
 
-    // გადასვლა შედეგებზე
+    // ✅ გადასვლა მესამე გვერდზე
     window.location.href = "next.html";
 }
