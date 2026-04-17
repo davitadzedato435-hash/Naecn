@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAEC Portal Clone</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HOME -->
+        <div id="screen-home" class="screen">
+            <div class="header-top">
+                <img src="https://naec.ge/resources/images/logo.png" alt="NAEC Logo" class="naec-main-logo">
+                <div class="english-banner">For English web page press here<br><strong>geonaec.com</strong></div>
+            </div>
+
+            <div class="search-nav">
+                <input type="text" class="search-input" placeholder="ძიება...">
+                <button class="menu-btn" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+            <div id="dropdown-menu" class="hidden">
+                <ul>
+                    <li onclick="showScreen('screen-portal')">საერთო სამაგისტრო გამოცდა</li>
+                    <li>ერთიანი ეროვნული გამოცდები</li>
+                </ul>
+            </div>
+
+            <div class="main-banner">
+                <div class="banner-main-text">
+                    ერთიანი ეროვნული და საერთო<br>სამაგისტრო გამოცდებისთვის
+                </div>
+                <div class="banner-highlight" onclick="showScreen('screen-portal')">
+                    რეგისტრაცია დაიწყო
+                </div>
+            </div>
+        </div>
+
+        <!-- PORTAL -->
+        <div id="screen-portal" class="screen hidden portal-bg">
+            <div class="portal-header">
+                <img src="https://naec.ge/resources/images/logo.png" alt="Logo">
+                <div class="portal-title">
+                    სსიპ შეფასებისა და გამოცდების<br>ეროვნული ცენტრი
+                </div>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="https://img.icons8.com/ios/50/ffffff/edit-property.png" alt="icon">
+                    <span>ერთიანი ეროვნული გამოცდები</span>
+                </div>
+
+                <div class="grid-item active-grid" onclick="showScreen('screen-login')">
+                    <img src="https://img.icons8.com/ios/50/ffffff/test-passed.png" alt="icon">
+                    <span>საერთო სამაგისტრო გამოცდა</span>
+                </div>
+
+                <div class="grid-item disabled-grid">
+                    <img src="https://img.icons8.com/ios/50/ffffff/graduation-cap.png" alt="icon">
+                    <span>მასწავლებლის გამოცდები</span>
+                </div>
+
+                <div class="grid-item">
+                    <img src="https://img.icons8.com/ios/50/ffffff/trophy.png" alt="icon">
+                    <span>ეროვნული სასწავლო ოლიმპიადები</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="screen-login" class="screen hidden login-page-bg">
+            <h2 class="blue-title">საერთო სამაგისტრო გამოცდა</h2>
+
+            <div class="login-content-wrapper">
+                <div class="info-text">
+                    <p>მოგესალმებით,</p>
+                    <p>უმაღლესი განათლების სისტემის რეფორმის ფარგლებში, სახელმწიფო უნივერსიტეტებში სწავლა სრულად ფინანსდება სახელმწიფოს მიერ!</p>
+                    <p>საერთო სამაგისტრო გამოცდაზე რეგისტრაცია <strong>მიმდინარე წლის 6 აპრილს 10:00 საათზე დაიწყო</strong> და 11 მაისის 18:00 საათამდე გაგრძელდება.</p>
+                    <p>დამატებითი კითხვებისთვის: (032) 2473333</p>
+                </div>
+
+                <div class="login-form-card">
+                    <div class="card-header">სისტემაში შესვლა</div>
+                    <p class="card-subtext">სარეგისტრაციო ფორმის შესავსებად ან სანახავად შეიყვანეთ</p>
+
+                    <div class="form-row">
+                        <label>პირადი ნომერი</label>
+                        <input type="text" id="p-id" maxlength="11">
+                    </div>
+
+                    <div class="captcha-container">
+                        <div class="captcha-img">sx27v</div>
+                        <div class="captcha-refresh" onclick="refreshCaptcha()">↻ განახლება</div>
+                        <p>აკრიფეთ სიმბოლოები</p>
+                        <input type="text" id="c-input">
+                    </div>
+
+                    <button class="continue-btn" onclick="checkFinalLogin()">გაგრძელება</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div id="screen-results" class="screen hidden results-bg">
+            <div class="results-header">
+                <img src="https://img.icons8.com/ios/50/2e437c/graduation-cap.png" alt="cap" class="cap-icon">
+                <h1>საერთო სამაგისტრო გამოცდა</h1>
+            </div>
+
+            <div class="results-table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>საგამოცდო საგანი</th>
+                            <th>ვარიანტი</th>
+                            <th>ნედლი ქულა</th>
+                            <th>სკალირებული ქულა</th>
+                            <th>პასუხების ფურცელი</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="blue-link">წაკითხულის გააზრება</td>
+                            <td>1</td>
+                            <td>19.4</td>
+                            <td></td>
+                            <td class="purple-link">გვერდი 1</td>
+                            <td class="purple-link">შეფასება</td>
+                        </tr>
+
+                        <tr>
+                            <td class="blue-link">ლოგიკური მსჯელობა</td>
+                            <td>1</td>
+                            <td>14.6</td>
+                            <td></td>
+                            <td class="purple-link">გვერდი 1</td>
+                            <td class="purple-link">შეფასება</td>
+                        </tr>
+
+                        <tr>
+                            <td class="blue-link">რაოდენ. მსჯელობა</td>
+                            <td>1</td>
+                            <td>17.6</td>
+                            <td></td>
+                            <td class="purple-link">გვერდი 1</td>
+                            <td class="purple-link">შეფასება</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="min-threshold">კომპეტენციის მინიმალური ზღვრები</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('dropdown-menu').classList.toggle('hidden');
+        }
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+            document.getElementById(screenId).classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        function checkFinalLogin() {
+            const id = document.getElementById('p-id').value;
+            const cap = document.getElementById('c-input').value;
+
+            if(id.length === 11 && cap.toLowerCase() === 'sx27v') {
+                showScreen('screen-results');
+            } else {
+                alert('შეიყვანეთ 11 ნიშნა პირადი ნომერი და ქაპჩა: sx27v');
+            }
+        }
+
+        function refreshCaptcha() {
+            alert("ქაპჩა იგივე რჩება: sx27v");
+        }
+    </script>
+
+</body>
+</html>
