@@ -1,9 +1,19 @@
-// პირველი + მეორე გვერდი
-document.querySelectorAll("[data-link]").forEach(el => {
-    el.addEventListener("click", () => {
-        window.location.href = el.getAttribute("data-link");
+// NAVIGATION (data-link ელემენტებისთვის)
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll("[data-link]").forEach(el => {
+        el.addEventListener("click", () => {
+            const link = el.getAttribute("data-link");
+            if (link) {
+                window.location.href = "./" + link;
+            }
+        });
     });
+
+    // CAPTCHA გაშვება მხოლოდ თუ არსებობს canvas
+    generateCaptcha();
 });
+
 
 // CAPTCHA
 let captchaText = "";
@@ -14,27 +24,38 @@ function generateCaptcha() {
 
     const ctx = canvas.getContext("2d");
 
-    captchaText = Math.random().toString(36).substring(2,7);
+    // გაწმენდა
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // ახალი კოდის გენერაცია
+    captchaText = Math.random().toString(36).substring(2, 7);
 
     ctx.font = "30px Arial";
     ctx.fillText(captchaText, 20, 40);
 }
 
-function login(){
-    const cap = document.getElementById("captchaInput").value;
-    const code = document.getElementById("code").value;
 
-    if(cap !== captchaText){
+// LOGIN ფუნქცია
+function login() {
+    const capInput = document.getElementById("captchaInput");
+    const codeInput = document.getElementById("code");
+
+    if (!capInput || !codeInput) return;
+
+    const cap = capInput.value.trim();
+    const code = codeInput.value.trim();
+
+    if (cap !== captchaText) {
         alert("Captcha არასწორია");
+        generateCaptcha(); // თავიდან გენერაცია
         return;
     }
 
-    if(code !== "12345678901"){
+    if (code !== "12345678901") {
         alert("კოდი არასწორია");
         return;
     }
 
-    window.location.href = "next.html";
+    // წარმატება → გადაყვანა
+    window.location.href = "./next.html";
 }
-
-generateCaptcha();
