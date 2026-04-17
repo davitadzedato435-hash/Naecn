@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>საერთო სამაგისტრო გამოცდა</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>NAEC</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<h2 class="page-title">საერთო სამაგისტრო გამოცდა</h2>
+<body class="page3">
 
-<div class="wrapper">
+<h1>საერთო სამაგისტრო გამოცდა</h1>
 
-    <!-- რეგისტრაცია -->
-    <div class="row">
-        <div class="icon">
-            <!-- იგივე SVG -->
-        </div>
-        <div class="text">
-            <div class="title">რეგისტრაცია</div>
-            <div class="desc">
-                საერთო სამაგისტრო გამოცდაში მონაწილეობის მისაღებად გაიარეთ რეგისტრაცია
-            </div>
-        </div>
-    </div>
+<div class="container">
+<div class="box">
+<div class="grid">
 
-    <!-- შედეგები -->
-    <div class="row" data-link="login.html">
-        <div class="icon">
-            <!-- იგივე SVG -->
-        </div>
-        <div class="text">
-            <div class="title">შედეგები</div>
-            <div class="desc">
-                შედეგების სანახავად გადადით
-            </div>
-        </div>
-    </div>
+<div class="left">
+<p>მოგესალმებით...</p>
+</div>
 
-    <!-- აპელაცია -->
-    <div class="row">
-        <div class="icon">
-            <!-- იგივე SVG -->
-        </div>
-        <div class="text">
-            <div class="title">აპელაცია</div>
-            <div class="desc">
-                სააპელაციო განაცხადი
-            </div>
-        </div>
-    </div>
+<div class="form-box">
+<div class="form-inner">
 
+<div class="form-header">სისტემაში შესვლა</div>
+
+<div class="form-body">
+
+<label>პირადი ნომერი</label>
+<input id="pid" type="text">
+
+<div class="captcha-box">
+<canvas id="captchaCanvas"></canvas>
+</div>
+
+<div class="refresh" onclick="generateCaptcha()">განახლება</div>
+
+<input id="captchaInput" type="text">
+
+<label>კოდი</label>
+<input id="code" type="text">
+
+<button onclick="login()">გაგრძელება</button>
+
+<div id="error"></div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
 </div>
 
 <script src="script.js"></script>
