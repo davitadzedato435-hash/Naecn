@@ -1,17 +1,29 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სისტემაში შესვლა</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <div class="page-wrapper">
     <h1 class="main-title">საერთო სამაგისტრო გამოცდა</h1>
     
     <div class="container">
         <div class="content-layout">
 
-            <!-- Left -->
+            <!-- LEFT -->
             <section class="info-section">
                 <p>მოგესალმებით,</p>
-                <p>უმაღლესი განათლების სისტემის რეფორმის ფარგლებში, სახელმწიფო უნივერსიტეტებში სწავლა სრულად ფინანსდება სახელმწიფოს მიერ!</p>
-                <p><strong>საერთო სამაგისტრო გამოცდაზე რეგისტრაცია მიმდინარეობს.</strong></p>
+                <p>შეიყვანეთ მონაცემები რეგისტრაციის გასაგრძელებლად.</p>
             </section>
 
-            <!-- Right -->
+            <!-- RIGHT -->
             <section class="form-section">
                 <div class="login-card">
 
@@ -28,7 +40,7 @@
                             <input type="text" id="personal-id">
                         </div>
 
-                        <!-- ✅ დამატებული: საიდენტიფიკაციო კოდი -->
+                        <!-- ✅ საიდენტიფიკაციო კოდი -->
                         <div class="form-group">
                             <label for="identification-code">საიდენტიფიკაციო კოდი</label>
                             <input type="text" id="identification-code">
@@ -37,10 +49,10 @@
                         <!-- CAPTCHA -->
                         <div class="captcha-container">
                             <div class="captcha-image">
-                                <span class="captcha-text">sx27v</span>
+                                <span id="captcha-text" class="captcha-text"></span>
                             </div>
-                            <div class="captcha-refresh">
-                                <span class="icon">🔄</span> განახლება
+                            <div class="captcha-refresh" onclick="generateCaptcha()">
+                                🔄 განახლება
                             </div>
                         </div>
 
@@ -50,7 +62,7 @@
                             <input type="text" id="captcha-input">
                         </div>
 
-                        <button type="submit" class="submit-btn">
+                        <button class="submit-btn" onclick="checkForm()">
                             გაგრძელება
                         </button>
 
@@ -61,3 +73,9 @@
         </div>
     </div>
 </div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
