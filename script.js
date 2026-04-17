@@ -77,7 +77,7 @@ function login(){
     }
 
     if (error) error.innerText = "";
-    window.location.href = "next.html";
+    window.location.href = "Mag.html";
 }
 
 
