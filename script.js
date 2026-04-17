@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.removeChild(link);
     };
 
-    // --- CARD CLICK (პირველი გვერდი) ---
+    // --- CARD CLICK ---
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("click", () => {
             const link = card.getAttribute("data-link");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- ROW CLICK (მეორე გვერდი) ---
+    // --- ROW CLICK ---
     document.querySelectorAll(".row").forEach(row => {
         row.addEventListener("click", () => {
             const link = row.getAttribute("data-link");
@@ -39,7 +39,6 @@ let captchaText = "";
 function generateCaptcha() {
     const canvas = document.getElementById("captchaCanvas");
 
-    // თუ ეს გვერდზე არ არის — არ დააკრაშოს
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
@@ -71,8 +70,8 @@ function login(){
 
     if (!capInput || !codeInput || !error) return;
 
-    const cap = capInput.value;
-    const code = codeInput.value;
+    const cap = capInput.value.trim();
+    const code = codeInput.value.trim();
 
     if(cap !== captchaText){
         error.innerText = "ქაპჩა არასწორია";
@@ -86,4 +85,4 @@ function login(){
 
     error.innerText = "";
     window.location.href = "next.html";
-        }
+}
