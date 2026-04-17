@@ -3,71 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>NAEC</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
-<body>
-
-<h1>საერთო სამაგისტრო გამოცდა</h1>
+<body class="page1">
 
 <div class="container">
-<div class="box">
+
+<div class="header">
+<img src="https://online.naec.ge/defonline/images/logo.png" class="logo">
+
+<div class="header-text">
+სსიპ შეფასებისა და გამოცდების<br>
+ეროვნული ცენტრი
+</div>
+</div>
+
 <div class="grid">
 
-<div class="left">
-<p>მოგესალმებით,</p>
-
-<p>უმაღლესი განათლების სისტემის რეფორმის ფარგლებში, სახელმწიფო უნივერსიტეტებში სწავლა სრულად ფინანსდება სახელმწიფოს მიერ!</p>
-
-<p><b>საერთო სამაგისტრო გამოცდაზე რეგისტრაცია მიმდინარე წლის 6 აპრილის 10:00 საათზე დაიწყო და 11 მაისის 18:00 საათამდე გაგრძელდება.</b></p>
-
+<div class="card" data-link="login.html">
+<img src="https://online.naec.ge/defonline/images/mag1.png">
 </div>
 
-<div class="form-box">
-<div class="form-inner">
-
-<div class="form-header">სისტემაში შესვლა</div>
-
-<div class="form-body">
-
-<div class="blue-text">
-შედეგების სანახავად შეიტანეთ მონაცემები
+<div class="card faded">
+<img src="https://online.naec.ge/defonline/images/uee1.png">
 </div>
 
-<label>პირადი ნომერი</label>
-<input id="pid" type="text">
-
-<div class="captcha">
-
-<div class="captcha-box">
-<canvas id="captchaCanvas"></canvas>
+<div class="card faded">
+<img src="https://online.naec.ge/defonline/images/teach1.png">
 </div>
 
-<div class="refresh" onclick="generateCaptcha()">განახლება</div>
-
-<label>აკრიფეთ სიმბოლოები</label>
-<input id="captchaInput" type="text">
-
+<div class="card faded">
+<img src="https://online.naec.ge/defonline/images/olimp1.png">
 </div>
 
-<label>საიდენტიფიკაციო კოდი</label>
-<input id="code" type="text">
-
-<button onclick="login()">გაგრძელება</button>
-
-<div id="error"></div>
-
-</div>
-</div>
-</div>
-
-</div>
 </div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
