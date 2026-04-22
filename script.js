@@ -95,8 +95,8 @@ function login(){
 
     if (error) error.innerText = "";
 
-    // ⚠️ აქაც ვასწორებთ
-    window.location.href = "mag.html";
+    // ✔️ აქ არის ჩასწორებული
+    window.location.href = "next.html";
 }
 
 
